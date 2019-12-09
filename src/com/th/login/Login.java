@@ -1,5 +1,5 @@
 package com.th.login;
-
+//µÇÂ¼
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,23 +7,24 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 import com.th.dao.Dao;
+import com.th.square.Square;
 
 import model.TbUserlist;
 
-//µÇÂ¼
 
 
-class Succeed extends JDialog{
-	public Succeed(Login frame) {
-		super(frame,"µÇÂ¼³É¹¦",true);
-		Container container=getContentPane();
-		JLabel j1=new JLabel("µÇÂ¼³É¹¦£¡");
-		container.add(j1);
-		j1.setFont(new Font("Î¢ÈíÑÅºÚ",0,36));
-		setBounds(200, 150, 200, 200);
-		setVisible(true);
-	}
-}
+
+//class Succeed extends JDialog{
+//	public Succeed(Login frame) {
+//		super(frame,"µÇÂ¼³É¹¦",true);
+//		Container container=getContentPane();
+//		JLabel j1=new JLabel("µÇÂ¼³É¹¦£¡");
+//		container.add(j1);
+//		j1.setFont(new Font("Î¢ÈíÑÅºÚ",0,36));
+//		setBounds(200, 150, 200, 200);
+//		setVisible(true);
+//	}
+//}
 
 public class Login extends JFrame{
 	private static TbUserlist user;
@@ -94,7 +95,7 @@ public class Login extends JFrame{
 //				setVisible(false);
 //              new Succeed(Login.this).setVisible(true);
 				else if(user.getNumber4()==Integer.parseInt(number.getText())&&user.getPassword4().contentEquals(password.getText())) {
-					new Succeed(Login.this);
+					new Square(Login.this);
 				}
 			}
 		});
