@@ -14,7 +14,7 @@ import model.TbUserlist;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-public class Issue extends JDialog{
+public class Issue_new extends JDialog{
 	
 	JRadioButton jrb1=new JRadioButton("校园");//设置4个单选框
 	JRadioButton jrb2=new JRadioButton("学习");
@@ -26,7 +26,7 @@ public class Issue extends JDialog{
 //	String sd_context2=textArea.getText();//获取文本域中的内容
 //	String sd_label2;//存放选中的单选框的文本内容
 	
-	public Issue(Square dialog) {
+	public Issue_new(Square_new dialog) {
 		super(dialog,"发布树洞",true);//在Square窗口之后出现	
 		setBounds(200, 150, 480, 853);//设置窗体坐标、大小，单位：像素
 		setLayout(null);//使该窗体取消布局管理器设置，以便自己设置每个组件的大小和位置
@@ -78,7 +78,6 @@ public class Issue extends JDialog{
 				Dao.MyConn();
 //				Dao.addTH(sd_context2,sd_label2);
 				Dao.addTH(textArea.getText(),jrb1.isSelected()?jrb1.getText():(jrb2.isSelected()?jrb2.getText():(jrb3.isSelected()?jrb3.getText():jrb4.getText())));
-				new Square_new(Issue.this);
 			}
 		});
 		

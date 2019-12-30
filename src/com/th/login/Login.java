@@ -71,9 +71,9 @@ public class Login extends JFrame{
 				Dao.MyConn();
 				user = Dao.getUser(Integer.parseInt(number.getText()), password.getText());
 				
-				System.out.println(user.getNumber4());
+//				System.out.println(user.getNumber4());
 //				System.out.println(Integer.parseInt(number.getText()));
-				System.out.println(user.getPassword4());
+//				System.out.println(user.getPassword4());
 //				System.out.println(password.getText());
 				
 				//获取在学号文本框中输入的内容，并将其强制转为int型

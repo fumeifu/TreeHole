@@ -3,6 +3,7 @@ package com.th.square;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Vector;
 
 import javax.swing.*;
 
@@ -46,7 +47,40 @@ public class Square extends JDialog{
 			}
 		});
 		
+//		JTextArea ta=new JTextArea(35,60);
+//		ta.setLineWrap(true);//设置文本域自动换行
+//		ta.setFont(new Font("微软雅黑",0,28));//设置字体，0正常，1粗体
+//		JScrollPane sp=new JScrollPane(ta);
+//		container.add(sp);
+//		sp.setBounds(40,40,375,600);
+		
+		//从数据库中取出信息
+		//rowData用来存放行数据
+		//columnNames存放列名
+		Vector rowData,columnNames;
+		JTable jt=null;
+		JScrollPane jsp=null;
+		columnNames=new Vector();
+		//设置列名
+		columnNames.add("编号");
+		columnNames.add("树洞内容");
+		columnNames.add("标签");
+		rowData = new Vector();
+		rowData=Dao.getTH();
+		//初始化Jtable
+		jt = new JTable(rowData,columnNames);	
+		jt.setRowHeight(28);// 设置表格行宽
+		jt.setFont(new Font("微软雅黑",0,22));//设置字体，0正常，1粗体
+		//初始化 jsp
+//		jsp = new JScrollPane(jt);	
+		jsp = new JScrollPane(jt, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
+                ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);// 创建滚动条组件，默认滚动条始终出现，初始化列表组件
+		jsp.setBounds(40,40,375,600);
+		//把jsp放入到container
+		container.add(jsp);
+		
+		
 		setVisible(true);//设置窗体可见	
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//关闭窗体并停止程序
+		setDefaultCloseOperation(JDialog.EXIT_ON_CLOSE);//关闭窗体并停止程序
 	}
 }
