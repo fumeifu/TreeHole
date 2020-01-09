@@ -31,6 +31,7 @@ public class Login extends JFrame{
 	JLabel stu_number=new JLabel();//创建学号标签
 	JLabel stu_password=new JLabel();//创建密码标签
 	final JTextField number=new JTextField();//创建学号文本框
+	public static int stu_number2;
 	JPasswordField password=new JPasswordField();//创建密码文本框
 	JButton btn=new JButton("登录");//创建按钮
 	
@@ -64,13 +65,15 @@ public class Login extends JFrame{
 		btn.setFont(new Font("微软雅黑",0,36));//设置字体，0正常，1粗体
 		c.add(btn);//将按钮添加到容器中
 		
+		
+		
 		btn.addActionListener(new ActionListener() {//为按钮添加鼠标单击事件			
 			@Override
 			public void actionPerformed(final ActionEvent e) {
 				// TODO Auto-generated method stub
 				Dao.MyConn();
 				user = Dao.getUser(Integer.parseInt(number.getText()), password.getText());
-				
+				stu_number2=Integer.parseInt(number.getText());
 //				System.out.println(user.getNumber4());
 //				System.out.println(Integer.parseInt(number.getText()));
 //				System.out.println(user.getPassword4());

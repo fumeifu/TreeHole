@@ -16,16 +16,15 @@ import javax.swing.ScrollPaneConstants;
 
 import com.th.dao.Dao;
 import com.th.issue.Issue;
-import com.th.login.Login;
 import com.th.my.My;
-import com.th.my.Secret;
 import com.th.square.Square;
 import com.th.square.Square_new;
+import com.th.square.Square_new2;
 
 
-public class Comment extends JDialog{
+public class Comment_new extends JDialog{
 
-	public Comment(Choose dialog) {		
+	public Comment_new(Comment dialog) {		
 		super(dialog,"评论",true);
 		
 		setBounds(200, 150, 480, 853);//设置窗体坐标、大小，单位：像素
@@ -74,18 +73,10 @@ public class Comment extends JDialog{
 		fasong.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(final ActionEvent e) {
-				Dao.MyConn();
-				Dao.addPL(Choose.sd_number,pl2.getText(),Login.stu_number2);
-				new Comment_new(Comment.this);
+				
 			}
 		});
 		
-//		JTextArea xianshi=new JTextArea(35,60);
-//		xianshi.setLineWrap(true);//设置文本域自动换行
-//		xianshi.setFont(new Font("微软雅黑",0,26));//设置字体，0正常，1粗体
-//		JScrollPane sp2=new JScrollPane(xianshi);
-//		container3.add(sp2);
-//		sp2.setBounds(40,340,380,300);
 		
 		Vector rowData,columnNames;
 		JTable jt=null;
@@ -112,6 +103,13 @@ public class Comment extends JDialog{
 		fanhui.setBounds(320, 755, 125, 40);//设置标签的位置和大小
 		fanhui.setFont(new Font("微软雅黑",0,22));//设置字体，0正常，1粗体
 		container3.add(fanhui);
+		
+		fanhui.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(final ActionEvent e) {
+				new Square_new2(Comment_new.this);
+			}
+		});
 		
 		setVisible(true);//设置窗体可见	
 		setDefaultCloseOperation(JDialog.EXIT_ON_CLOSE);//关闭窗体并停止程序

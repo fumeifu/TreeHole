@@ -19,6 +19,7 @@ import javax.swing.*;
 
 import com.th.comment.Choose;
 import com.th.comment.Comment;
+import com.th.comment.Comment_new;
 import com.th.dao.Dao;
 import com.th.issue.Issue;
 import com.th.issue.Issue_new;
@@ -30,7 +31,7 @@ import model.TbTh;
 import model.TbUserlist;
 
 
-public class Square_new extends JDialog{
+public class Square_new2 extends JDialog{
 	
 //	//加载JDBC驱动
 //	protected static String dbClassName2 = "com.mysql.cj.jdbc.Driver";
@@ -77,7 +78,7 @@ public class Square_new extends JDialog{
 	JButton btn_add=new JButton("发布树洞");//创建"发布树洞"按钮
 	JButton btn_my=new JButton("我的");//创建"我的"按钮
 	
-	public Square_new(Issue dialog) {	
+	public Square_new2(Comment_new dialog) {	
 		super(dialog,"广场",true);
 		setBounds(200, 150, 480, 853);//设置窗体坐标、大小，单位：像素
 		setLayout(null);//使该窗体取消布局管理器设置，以便自己设置每个组件的大小和位置
@@ -91,7 +92,7 @@ public class Square_new extends JDialog{
 		btn_add.addActionListener(new ActionListener() {//为"发布树洞"按钮添加鼠标单击事件			
 			@Override
 			public void actionPerformed(final ActionEvent e) {
-				new Issue_new(Square_new.this);
+				
 			}
 		});
 		
@@ -102,7 +103,7 @@ public class Square_new extends JDialog{
 		btn_my.addActionListener(new ActionListener() {//为"我的"按钮添加鼠标单击事件			
 			@Override
 			public void actionPerformed(final ActionEvent e) {
-				
+				new My(Square_new2.this);
 			}
 		});
 		
@@ -332,7 +333,7 @@ public class Square_new extends JDialog{
 		comment.addActionListener(new ActionListener() {//为"我的"按钮添加鼠标单击事件			
 			@Override
 			public void actionPerformed(final ActionEvent e) {
-				new Choose(Square_new.this);
+				
 			}
 		});
 		

@@ -42,11 +42,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-public class My extends JDialog{
+public class My2 extends JDialog{
 	
-
-	
-	public My(Square_new2 dialog) {
+	public My2(Secret dialog) {
 		super(dialog,"我的",true);//在Square窗口之后出现
 		setTitle("我的");
 		setBounds(200, 150, 480, 853);//设置窗体坐标、大小，单位：像素
@@ -64,8 +62,7 @@ public class My extends JDialog{
 		l0.setBounds(80, 180, 100, 100);
 		container3.add(l0);
 		
-//		JButton btn = new JButton("修改密码");//登出按钮
-		JButton btn = new JButton("登出");
+		JButton btn = new JButton("修改密码");//登出按钮
 		btn.setFont(new Font("微软雅黑",0,28));
 		container3.add(btn);
 		btn.setBounds(150,500,160,60);
@@ -103,11 +100,10 @@ public class My extends JDialog{
 		password5.setBounds(150,210,150,40);
 		container3.add(password5);
 		
-		btn.addActionListener(new ActionListener() {//为按钮添加鼠标单击事件			
+		btn.addActionListener(new ActionListener() {//为"我的"按钮添加鼠标单击事件			
 			@Override
 			public void actionPerformed(final ActionEvent e) {
-//				new Secret(My.this);
-				new Login();
+				
 			}
 		});
 		
@@ -115,9 +111,6 @@ public class My extends JDialog{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//关闭窗体并停止程序
 		
 	}
-	
-	
-	
 	
 }
 

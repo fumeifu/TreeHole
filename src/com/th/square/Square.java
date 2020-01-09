@@ -43,7 +43,7 @@ public class Square extends JDialog{
 		btn_my.addActionListener(new ActionListener() {//为"我的"按钮添加鼠标单击事件			
 			@Override
 			public void actionPerformed(final ActionEvent e) {
-				new My(Square.this);
+//				new My(Square.this);
 			}
 		});
 		

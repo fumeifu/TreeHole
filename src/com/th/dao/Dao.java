@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
+import com.th.comment.Choose;
+
+import model.TbChooselist;
 import model.TbTh;
 import model.TbUserlist;
 
@@ -253,8 +256,6 @@ public class Dao {
 		}else {
 			return false;
 		}
-
-	
 	}
 	
 	public static boolean insert(String sql) {
@@ -268,30 +269,56 @@ public class Dao {
 		return result;
 	}
 	
-//	public static TbUserlist getChoose(int choose3) {
-//		TbUserlist user = new TbUserlist();
-//		ResultSet rs = findForResultSet("select * from tb_shudong where stu_number="+choose3);
-//			
-//		try {
-//			while(rs.next()) {
-//				int number3 = rs.getInt("stu_number"); // 获取列名是"stu_number"的字段值
-//				// 获取列名是"stu_password"的字段值
-//				String password3 = rs.getString("stu_password");				
-////				System.out.print("学号：" + number3); // 将列值输出
-////				System.out.println("密码：" + password3);
-//				
-//				if(password3.contentEquals(password)) {
-//					user.setNumber4(number3);
-//					user.setPassword4(password3);
-//				}
-//				
-//			}		
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		return user;
-//	}
+	public static TbChooselist getChoose(int choose3) {
+		
+		TbChooselist choose6 = new TbChooselist();
+		ResultSet rs = findForResultSet("select * from tb_shudong where sd_number="+choose3);
+			
+		try {
+			while(rs.next()) {
+				String sd_context4 = rs.getString("sd_context"); // 获取列名是"sd_context"的字段值		
+				choose6.setNumber(choose3);
+				choose6.setContext(sd_context4);
+			}		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return choose6;
+	}
 
+	
+	public static boolean addPL(int sd_number2,String pl_context2,int stu_number2) {
+//		System.out.println("hello");
+		if(pl_context2.length()!=0) {
+			return insert("insert tb_comment (sd_number,pl_context,stu_number) values('"+sd_number2+"','"+pl_context2+"','"+stu_number2+"')");		
+		}else {
+			return false;
+		}
+//		return insert("insert tb_comment (pl_context,sd_number,stu_number) values('"+pl_context+"','"+sd_number+"','"+stu_number+"')");		
+	}
+	
+	public static Vector getPL() {
+		Vector rowData3 = new Vector();
+		ResultSet rs4 = findForResultSet("select * from tb_comment");
+		try {
+//    		System.out.print(rs3);
+        	while(rs4.next()){
+//				rowData可以存放多行
+//       		System.out.println("hello");
+        	if(rs4.getInt("sd_number")==Choose.sd_number) {
+        		Vector hang=new Vector();
+        		hang.add(rs4.getInt("stu_number"));
+        		hang.add(rs4.getString("pl_context"));
+//			加入到rowData
+        		rowData3.add(hang);
+        	}
+			
+			}
+        }catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rowData3;
+	}
 	
 	
 }

@@ -4,13 +4,14 @@ import javax.swing.*;
 
 import com.th.square.Square;
 import com.th.square.Square_new;
+import com.th.square.Square_new2;
 
 import java.awt.*;
 
 
 public class My_new extends JDialog{
 	
-	public My_new(Square_new dialog) {
+	public My_new(Square_new2 dialog) {
 		super(dialog,"我的",true);//在Square窗口之后出现
 		setBounds(200, 150, 480, 853);//设置窗体坐标、大小，单位：像素
 		setLayout(null);//使该窗体取消布局管理器设置，以便自己设置每个组件的大小和位置
